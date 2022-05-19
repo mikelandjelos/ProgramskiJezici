@@ -6,7 +6,12 @@
 
 ## Commit&Push
 
-- Prvo konfigurisanje user-a, pa onda:
+- Prvo konfigurisanje user-a:
+
+`git config --global user.name "John Doe"`
+`git config --global user.email johndoe@example.com`
+
+- Zatim dodavanje, commit i push:
 
 ```
 git add .
