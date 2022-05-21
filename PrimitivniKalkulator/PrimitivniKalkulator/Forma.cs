@@ -54,7 +54,7 @@ namespace PrimitivniKalkulator
             }
             catch (Exception ex)
             { 
-                MessageBox.Show("Error ocurred: " + ex.Message);
+                MessageBox.Show("Expression not valid: " + ex.Message);
                 btnClr_Click(sender, e);
             }
         }

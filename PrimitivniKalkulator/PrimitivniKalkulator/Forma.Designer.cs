@@ -274,6 +274,7 @@
             // 
             this.btn0.AutoSize = true;
             this.btn0.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn0.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn0.Location = new System.Drawing.Point(561, 559);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(180, 133);
@@ -289,6 +290,7 @@
             this.txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBox.Location = new System.Drawing.Point(3, 3);
             this.txtBox.Name = "txtBox";
+            this.txtBox.ReadOnly = true;
             this.tblLayout.SetRowSpan(this.txtBox, 2);
             this.txtBox.Size = new System.Drawing.Size(1115, 272);
             this.txtBox.TabIndex = 14;
