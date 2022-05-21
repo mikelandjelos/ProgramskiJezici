@@ -73,11 +73,32 @@ namespace StudentOrganizationForma
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(Ime + " ");
-            sb.Append(Prezime + " ");
-            sb.Append(BrInd);
+            sb.Append(Ime + ", ");
+            sb.Append(Prezime + ", ");
+            sb.Append(BrInd + ", ");
+            sb.Append(NivoStudija + ", ");
+            sb.Append(GodinaStudija + ", ");
+            sb.Append(Prosek + ", ");
+            sb.Append((FIB ? "budzet" : "samofinansiranje") + ", ");
+            sb.Append(DatRodj);
             return sb.ToString();
         }
+
+        public override bool Equals(object obj)
+        {
+            Student s = obj as Student;
+            if (s == null)
+                return false;
+            return Ime.Equals(s.Ime) &&
+                Prezime.Equals(s.Prezime) &&
+                BrInd.Equals(s.BrInd) &&
+                NivoStudija.Equals(s.NivoStudija) &&
+                GodinaStudija.Equals(s.GodinaStudija) &&
+                Prosek.Equals(s.Prosek) &&
+                FIB.Equals(s.FIB) &&
+                DatRodj.Equals(s.DatRodj);
+        }
+
         #endregion
 
     }

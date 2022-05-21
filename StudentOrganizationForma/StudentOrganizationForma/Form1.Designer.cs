@@ -116,14 +116,14 @@
             this.tbxPrezime.Location = new System.Drawing.Point(186, 95);
             this.tbxPrezime.Name = "tbxPrezime";
             this.tbxPrezime.Size = new System.Drawing.Size(135, 26);
-            this.tbxPrezime.TabIndex = 4;
+            this.tbxPrezime.TabIndex = 2;
             // 
             // tbxIme
             // 
             this.tbxIme.Location = new System.Drawing.Point(186, 47);
             this.tbxIme.Name = "tbxIme";
             this.tbxIme.Size = new System.Drawing.Size(135, 26);
-            this.tbxIme.TabIndex = 5;
+            this.tbxIme.TabIndex = 1;
             // 
             // gbxNivoStud
             // 
@@ -143,7 +143,7 @@
             this.rdbDoktorske.Location = new System.Drawing.Point(198, 25);
             this.rdbDoktorske.Name = "rdbDoktorske";
             this.rdbDoktorske.Size = new System.Drawing.Size(107, 24);
-            this.rdbDoktorske.TabIndex = 9;
+            this.rdbDoktorske.TabIndex = 6;
             this.rdbDoktorske.TabStop = true;
             this.rdbDoktorske.Text = "Doktorske";
             this.rdbDoktorske.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@
             this.rdbOsnovne.Location = new System.Drawing.Point(6, 25);
             this.rdbOsnovne.Name = "rdbOsnovne";
             this.rdbOsnovne.Size = new System.Drawing.Size(97, 24);
-            this.rdbOsnovne.TabIndex = 7;
+            this.rdbOsnovne.TabIndex = 4;
             this.rdbOsnovne.TabStop = true;
             this.rdbOsnovne.Text = "Osnovne";
             this.rdbOsnovne.UseVisualStyleBackColor = true;
@@ -167,7 +167,7 @@
             this.rdbMaster.Location = new System.Drawing.Point(109, 25);
             this.rdbMaster.Name = "rdbMaster";
             this.rdbMaster.Size = new System.Drawing.Size(83, 24);
-            this.rdbMaster.TabIndex = 8;
+            this.rdbMaster.TabIndex = 5;
             this.rdbMaster.TabStop = true;
             this.rdbMaster.Text = "Master";
             this.rdbMaster.UseVisualStyleBackColor = true;
@@ -195,13 +195,18 @@
             // 
             this.numGodStud.Location = new System.Drawing.Point(189, 245);
             this.numGodStud.Maximum = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
             this.numGodStud.Name = "numGodStud";
             this.numGodStud.Size = new System.Drawing.Size(135, 26);
-            this.numGodStud.TabIndex = 9;
+            this.numGodStud.TabIndex = 7;
+            this.numGodStud.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numProsek
             // 
@@ -224,7 +229,7 @@
             0});
             this.numProsek.Name = "numProsek";
             this.numProsek.Size = new System.Drawing.Size(135, 26);
-            this.numProsek.TabIndex = 10;
+            this.numProsek.TabIndex = 8;
             this.numProsek.Value = new decimal(new int[] {
             5,
             0,
@@ -237,7 +242,7 @@
             this.cbxBudzet.Location = new System.Drawing.Point(140, 321);
             this.cbxBudzet.Name = "cbxBudzet";
             this.cbxBudzet.Size = new System.Drawing.Size(198, 24);
-            this.cbxBudzet.TabIndex = 11;
+            this.cbxBudzet.TabIndex = 9;
             this.cbxBudzet.Text = "Finansiranje iz budzeta";
             this.cbxBudzet.UseVisualStyleBackColor = true;
             // 
@@ -256,7 +261,7 @@
             this.datRodj.Location = new System.Drawing.Point(186, 356);
             this.datRodj.Name = "datRodj";
             this.datRodj.Size = new System.Drawing.Size(143, 26);
-            this.datRodj.TabIndex = 13;
+            this.datRodj.TabIndex = 10;
             // 
             // btnDodaj
             // 
@@ -297,11 +302,13 @@
             // lbxStudenti
             // 
             this.lbxStudenti.FormattingEnabled = true;
+            this.lbxStudenti.HorizontalScrollbar = true;
             this.lbxStudenti.ItemHeight = 20;
             this.lbxStudenti.Location = new System.Drawing.Point(16, 437);
             this.lbxStudenti.Name = "lbxStudenti";
             this.lbxStudenti.Size = new System.Drawing.Size(308, 104);
             this.lbxStudenti.TabIndex = 18;
+            this.lbxStudenti.DoubleClick += new System.EventHandler(this.lbxStudenti_DoubleClick);
             // 
             // btnSacuvaj
             // 
@@ -329,7 +336,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fajlToolStripMenuItem});

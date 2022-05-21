@@ -31,11 +31,11 @@ namespace StudentOrganizationForma
         }
 
         private void SinhronizujListu()
-        {
+        { 
             if (studenti.Count > 0)
                 studenti.Clear();
-            foreach (object o in lbxStudenti.Items)
-                studenti.Add((Student)o);
+            foreach (Student s in lbxStudenti.Items)
+                studenti.Add(s);
         }
 
         private void StudentUFormu(in Student s)
@@ -60,6 +60,9 @@ namespace StudentOrganizationForma
             s.BrInd = (int)numBrInd.Value;
             ProcitajNivo(ref s);
             s.GodinaStudija = (int)numGodStud.Value;
+            s.Prosek = (double)numProsek.Value;
+            s.FIB = cbxBudzet.Checked;
+            s.DatRodj = datRodj.Value;
         }
 
         private void PostaviNivo(in Student s)
@@ -92,25 +95,30 @@ namespace StudentOrganizationForma
         #region EventHandlers
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Student student = new Student();
+            Student student;
             this.FormaUStudenta(out student);
+            if (studenti.Contains(student))
+                return;
             studenti.Add(student);
             SinhronizujLBX();
         }
 
         private void btnObrisi_Click(object sender, EventArgs e)
         {
-            if (lbxStudenti.SelectedItem != null)
-                lbxStudenti.Items.Remove(lbxStudenti.SelectedItem);
+            if (lbxStudenti.SelectedItem == null)
+                return;
+            lbxStudenti.Items.Remove(lbxStudenti.SelectedItem);
             SinhronizujListu();
         }
 
         private void btnProsledi_Click(object sender, EventArgs e)
         {
-            Student s = lbxStudenti.SelectedItem as Student;
-            if (s != null)
-                studenti.Add(s);
-            SinhronizujLBX();
+            if (lbxStudenti.SelectedIndex == -1)
+                return;
+            Student s;
+            FormaUStudenta(out s);
+            lbxStudenti.Items[lbxStudenti.SelectedIndex] = s;
+            SinhronizujListu();
         }
 
         private void rdbOsnovne_CheckedChanged(object sender, EventArgs e)
@@ -179,7 +187,14 @@ namespace StudentOrganizationForma
                 br.Close();
             }
         }
-        #endregion
 
+        private void lbxStudenti_DoubleClick(object sender, EventArgs e)
+        {
+            Student student = lbxStudenti.SelectedItem as Student;
+            if (student == null)
+                return;
+            StudentUFormu(student);
+        }
+        #endregion
     }
 }
