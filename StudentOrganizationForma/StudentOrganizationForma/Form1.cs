@@ -14,29 +14,29 @@ namespace StudentOrganizationForma
     public partial class Form1 : Form
     {
 
-        List<Student> studenti;
+        // List<Student> studenti;
 
         public Form1()
         {
             InitializeComponent();
-            studenti = new List<Student>();
+            // studenti = new List<Student>();
         }
 
         #region Misc
-        private void SinhronizujLBX()
-        { 
-            if (lbxStudenti.Items.Count > 0)
-                lbxStudenti.Items.Clear();
-            lbxStudenti.Items.AddRange(studenti.ToArray());
-        }
+        //private void SinhronizujLBX()
+        //{ 
+        //    if (lbxStudenti.Items.Count > 0)
+        //        lbxStudenti.Items.Clear();
+        //    lbxStudenti.Items.AddRange(studenti.ToArray());
+        //}
 
-        private void SinhronizujListu()
-        { 
-            if (studenti.Count > 0)
-                studenti.Clear();
-            foreach (Student s in lbxStudenti.Items)
-                studenti.Add(s);
-        }
+        //private void SinhronizujListu()
+        //{ 
+        //    if (studenti.Count > 0)
+        //        studenti.Clear();
+        //    foreach (Student s in lbxStudenti.Items)
+        //        studenti.Add(s);
+        //}
 
         private void StudentUFormu(in Student s)
         {
@@ -97,10 +97,11 @@ namespace StudentOrganizationForma
         {
             Student student;
             this.FormaUStudenta(out student);
-            if (studenti.Contains(student))
-                return;
-            studenti.Add(student);
-            SinhronizujLBX();
+            //if (studenti.Contains(student))
+            //    return;
+            //studenti.Add(student);
+            //SinhronizujLBX();
+            lbxStudenti.Items.Add(student);
         }
 
         private void btnObrisi_Click(object sender, EventArgs e)
@@ -108,7 +109,7 @@ namespace StudentOrganizationForma
             if (lbxStudenti.SelectedItem == null)
                 return;
             lbxStudenti.Items.Remove(lbxStudenti.SelectedItem);
-            SinhronizujListu();
+            // SinhronizujListu();
         }
 
         private void btnProsledi_Click(object sender, EventArgs e)
@@ -118,7 +119,7 @@ namespace StudentOrganizationForma
             Student s;
             FormaUStudenta(out s);
             lbxStudenti.Items[lbxStudenti.SelectedIndex] = s;
-            SinhronizujListu();
+            // SinhronizujListu();
         }
 
         private void rdbOsnovne_CheckedChanged(object sender, EventArgs e)
@@ -144,8 +145,8 @@ namespace StudentOrganizationForma
             {
                 bw
                     = new BinaryWriter(new FileStream(path, FileMode.Create));
-                bw.Write(studenti.Count);
-                foreach (Student s in studenti)
+                bw.Write(lbxStudenti.Items.Count);
+                foreach (Student s in lbxStudenti.Items)
                     Student.UpisBin(bw, in s);
             }
             catch (IOException ex)
@@ -174,9 +175,9 @@ namespace StudentOrganizationForma
                 for (int i = 0; i < count; ++i) {
                     Student s;
                     Student.CitajBin(br, out s);
-                    studenti.Add(s);
+                    lbxStudenti.Items.Add(s);
                 }
-                SinhronizujLBX();
+                // SinhronizujLBX();
             }
             catch (Exception ex)
             {
