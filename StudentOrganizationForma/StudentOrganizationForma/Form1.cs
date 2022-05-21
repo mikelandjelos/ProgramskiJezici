@@ -97,8 +97,8 @@ namespace StudentOrganizationForma
         {
             Student student;
             this.FormaUStudenta(out student);
-            //if (studenti.Contains(student))
-            //    return;
+            if (lbxStudenti.Items.Contains(student))
+                return;
             //studenti.Add(student);
             //SinhronizujLBX();
             lbxStudenti.Items.Add(student);
